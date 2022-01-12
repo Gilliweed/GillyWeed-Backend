@@ -25,7 +25,6 @@ router.post("/register", async (req, res) => {
 // sign in
 router.post("/signin", async (req, res) => {
   try {
-
     // check user's username or we can also check with email id
     const user = await User.findOne({ username: req.body.username });
     !user && res.status(401).json("username not found!");

@@ -1,53 +1,42 @@
 const mongoose = require("mongoose");
 
-const blogSchema = new mongoose.Schema({
-  topic: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  desc: {
-    type: String,
-    required: true,
-  },
-  cause: [
-    {
-      title: {
-        type: String,
-        required: true,
-      },
-      prob: {
-        type: Arrays,
-        required: true,
-      },
+const blogSchema = new mongoose.Schema(
+  {
+    topic: {
+      type: String,
+      required: true,
+      unique: true,
     },
-  ],
-  sol: [
-    {
-      topic: {
-        tyep: String,
-        required: true,
-      },
-      solu: {
-        type: Arrays,
-        required: true,
-      },
+    desc: {
+      type: String,
+      required: true,
     },
-  ],
-  Category: {
-    type: String,
-    required: true,
+    subheading: {
+      type: Array,
+      required: true,
+    },
+    subcontent: {
+      type: Array,
+      required: true,
+    },
+    Category: {
+      type: String,
+      required: true,
+    },
+    tags: {
+      type: Array,
+      required: true,
+    },
+    img: {
+      type: Array,
+      reuired: true,
+    },
+    username: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
-  tags: {
-    type: Arrays,
-    required: true,
-  },
-  img: {
-    type: String,
-    reuired: true,
-  },
-  username: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
-});
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Blog", blogSchema);
