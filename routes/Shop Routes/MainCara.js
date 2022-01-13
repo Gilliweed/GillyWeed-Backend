@@ -1,10 +1,10 @@
-const Product = require("../Database/ShopModels/Product");
-const { verifyTokenAndAdmin } = require("./verifyToken");
+const Product = require("../../Database/ShopModels/MainCarasoule");
+const { verifyTokenAndAdmin } = require("../verifyToken");
 
 const router = require("express").Router();
 
 // adding new product
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+router.post("/maincarasoule", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Product(req.body);
   try {
     const savedProduct = await newProduct.save();
@@ -50,7 +50,7 @@ router.get("/find/:id", async (req, res) => {
   }
 });
 // get all products
-router.get("/", async (req, res) => {
+router.get("/maincarasoule", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   try {
