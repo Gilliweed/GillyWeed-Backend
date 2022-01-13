@@ -7,6 +7,9 @@ const productRoute = require("./routes/Shop Routes/product");
 const authRoute = require("./routes/auth");
 const cartRoute = require("./routes/Shop Routes/cart");
 const orderRoute = require("./routes/Shop Routes/order");
+const cartRoute = require("./routes/cart");
+const orderRoute = require("./routes/order");
+const blogRoute = require("./routes/blog");
 const cors = require("cors");
 dotenv.config();
 
@@ -28,6 +31,7 @@ app.use("/api/products", productRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/cart", cartRoute);
 app.use("/api/order", orderRoute);
+app.use("/api/blog", blogRoute);
 
 app.listen(5000, () => {
   console.log("server is running on port ");
