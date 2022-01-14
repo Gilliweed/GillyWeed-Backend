@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const FlashSaleSchema = new mongoose.Schema(
+const topratedSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, unique: true },
     desc: { type: String, required: true },
@@ -21,4 +21,4 @@ const FlashSaleSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("FlashSaleProducts", FlashSaleSchema);
+module.exports = mongoose.model("topratedProducts", topratedSchema);

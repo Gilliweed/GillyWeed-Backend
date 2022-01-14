@@ -9,6 +9,7 @@ const BigDiscountSchema = new mongoose.Schema(
     size: { type: Array },
     color: { type: Array },
     price: { type: Number, required: true },
+    discountprice: { type: Number, required: true },
     inStock : {type: Boolean , default:true},
   },
   { timestamps: true },
@@ -21,4 +22,4 @@ const BigDiscountSchema = new mongoose.Schema(
   },
 );
 
-module.exports = mongoose.model("BigDiscountCarasouleProducts", BigDiscountSchema);
+module.exports = mongoose.model("BigDiscountProducts", BigDiscountSchema);

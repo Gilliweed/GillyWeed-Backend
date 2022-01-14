@@ -1,16 +1,16 @@
-const Product = require("../../Database/ShopModels/BigDiscount");
+const Product = require("../../Database/ShopModels/featuredproduct");
 const { verifyTokenAndAdmin } = require("../verifyToken");
 
 const router = require("express").Router();
 
 // adding new product
-router.post("/", verifyTokenAndAdmin, async (req, res) => {
+router.post("/newarrival", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Product(req.body);
   try {
     const savedProduct = await newProduct.save();
     res.status(200).json(savedProduct);
   } catch (err) {
-    res.status(200).json("error is here",err);
+    res.status(200).json(err);
   }
 });
 
