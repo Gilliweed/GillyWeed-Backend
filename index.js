@@ -9,6 +9,10 @@ const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
 const blogRoute = require("./routes/blog");
 const cors = require("cors");
+
+const flash = require("connect-flash");
+const customMware = require("./config/middleware");
+
 dotenv.config();
 
 mongoose
@@ -24,6 +28,8 @@ const corsOptions = {
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
+app.use(flash());
+app.use(customMware.setFlash);
 app.use("/api/user", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/auth", authRoute);
