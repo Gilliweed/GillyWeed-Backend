@@ -3,10 +3,11 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRoute = require("./routes/user");
-const productRoute = require("./routes/product");
+const productRoute = require("./routes/Shop Routes/product");
 const authRoute = require("./routes/auth");
-const cartRoute = require("./routes/cart");
-const orderRoute = require("./routes/order");
+const cartRoute = require("./routes/Shop Routes/cart");
+const orderRoute = require("./routes/Shop Routes/order");
+
 const blogRoute = require("./routes/blog");
 const cors = require("cors");
 

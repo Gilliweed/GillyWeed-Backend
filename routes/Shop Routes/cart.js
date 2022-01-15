@@ -2,10 +2,10 @@ const {
   verifyToken,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
-} = require("./verifyToken");
+} = require("../verifyToken");
 
 const router = require("express").Router();
-const Cart = require("../Database/ShopModels/Cart");
+const Cart = require("../../Database/ShopModels/Cart");
 //CREATE any one can create his cart
 
 router.post("/", verifyToken, async (req, res) => {
