@@ -16,6 +16,11 @@ const featuredproductRoute = require("./routes/Shop Routes/featuredproduct");
 const blogRoute = require("./routes/blog");
 const cors = require("cors");
 
+const flash = require("connect-flash");
+const customMware = require("./config/middleware");
+
+dotenv.config();
+
 
 
 // mongo db
@@ -46,8 +51,13 @@ const corsOptions = {
 // Routes
 
 app.use(cors(corsOptions));
+<<<<<<< HEAD
 
 // user routes
+=======
+app.use(flash());
+app.use(customMware.setFlash);
+>>>>>>> 6a7b783923af4f4f02e00f283dfe6c94d039a339
 app.use("/api/user", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/auth", authRoute);
