@@ -50,7 +50,7 @@ router.get("/find/:id", async (req, res) => {
   }
 });
 // get all products
-router.get("/maincarasoule", async (req, res) => {
+router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   try {

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const BigDiscountSchema = new mongoose.Schema(
+const topratedSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, unique: true },
     desc: { type: String, required: true },
@@ -9,7 +9,7 @@ const BigDiscountSchema = new mongoose.Schema(
     size: { type: Array },
     color: { type: Array },
     price: { type: Number, required: true },
-    inStock : {type: Boolean , default:true},
+    inStock: { type: Boolean, default: true },
   },
   { timestamps: true },
   {
@@ -18,7 +18,7 @@ const BigDiscountSchema = new mongoose.Schema(
       j: true,
       wtimeout: 1000,
     },
-  },
+  }
 );
 
-module.exports = mongoose.model("BigDiscountCarasouleProducts", BigDiscountSchema);
+module.exports = mongoose.model("topratedProducts", topratedSchema);

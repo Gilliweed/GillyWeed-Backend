@@ -9,7 +9,10 @@ const productSchema = new mongoose.Schema(
     size: { type: Array },
     color: { type: Array },
     price: { type: Number, required: true },
-    inStock : {type: Boolean , default:true},
+    discountprice: { type: Number },
+    rating: { type: Number },
+    nocomments: { type: Number },
+    inStock: { type: Boolean, default: true },
   },
   { timestamps: true },
   {
@@ -18,7 +21,7 @@ const productSchema = new mongoose.Schema(
       j: true,
       wtimeout: 1000,
     },
-  },
+  }
 );
 
 module.exports = mongoose.model("productData", productSchema);
