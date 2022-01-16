@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.Schema(
+const NewArrivalSchema = new mongoose.Schema(
   {
     title: { type: String, required: true, unique: true },
     desc: { type: String, required: true },
@@ -9,9 +9,6 @@ const productSchema = new mongoose.Schema(
     size: { type: Array },
     color: { type: Array },
     price: { type: Number, required: true },
-    discountprice: { type: Number },
-    rating: { type: Number },
-    nocomments: { type: Number },
     inStock: { type: Boolean, default: true },
   },
   { timestamps: true },
@@ -24,4 +21,4 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("productData", productSchema);
+module.exports = mongoose.model("NewArrivalProducts", NewArrivalSchema);
