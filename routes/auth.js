@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
     console.log("err", err);
-    req.flash("error", "You not fill the Information Correctly");
+    // req.flash("error", "You not fill the Information Correctly");
   }
 });
 

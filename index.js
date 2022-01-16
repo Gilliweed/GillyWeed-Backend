@@ -22,15 +22,21 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
 app.use(express.json());
 const corsOptions = {
   origin: "http://localhost:3000",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
+
 app.use(cors(corsOptions));
-app.use(flash());
-app.use(customMware.setFlash);
+
+//  Using Flash
+// app.use(flash());
+// app.use(customMware.setFlash);
+
+
 app.use("/api/user", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/auth", authRoute);
