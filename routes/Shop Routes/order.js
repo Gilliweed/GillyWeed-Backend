@@ -2,8 +2,8 @@ const {
     verifyToken,
     verifyTokenAndAuthorization,
     verifyTokenAndAdmin,
-  } = require("./verifyToken");
-const Order = require("../Database/ShopModels/Order");
+  } = require("../verifyToken");
+const Order = require("../../Database/ShopModels/Order");
 const router = require("express").Router();
   
   //make a order
