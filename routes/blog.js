@@ -21,7 +21,6 @@ router.post("/", async (req, res) => {
 });
 
 // Get all Blogs
-
 router.get("/", async (req, res) => {
   const allBlog = await Blog.find();
   if (allBlog) {
@@ -32,7 +31,6 @@ router.get("/", async (req, res) => {
 });
 
 // Get Blogs By Category
-
 router.get("/:cat", async (req, res) => {
   const blogs = await Blog.find(req.params.cat);
   if (blogs) {
@@ -52,14 +50,39 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Delete the blog only for the admib
-
+// Delete the blog only for the admin
 router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
   try {
     await Blog.findByIdAndDelete(req.params.id);
     res.status(201).json("Blog is successfully deleted");
   } catch {
     res.status(500).json("Blog is not deleted ");
+  }
+});
+
+// Delete the blog by the User
+router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
+  try {
+    await Blog.findByIdAndDelete(req.params.id);
+    res.status(201).json("Blog is successfully deleted");
+  } catch {
+    res.status(500).json("Not Perimission Given");
+  }
+});
+
+// Update the Blog
+router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
+  try {
+    const blog = Blog.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+    rea.status(200).json(blog);
+  } catch {
+    res.status(200).json("Blog Not Updated");
   }
 });
 

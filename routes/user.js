@@ -2,31 +2,31 @@ const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = requir
 const User = require("../Database/User");
 const router = require("express").Router();
 
-// udate user
+// update user
 
-router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
+// router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
 
-// if user change password
+// // if user change password
 
-  if (req.body.password) {
-    req.body.password = CryptoJS.AES.encrypt(
-      req.body.password,
-      process.env.PASS_SEC_KEY
-    ).toString();
-  }
-  try {
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: req.body,
-      },
-      { new: true }
-    );
-    res.status(200).json(updatedUser);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//   if (req.body.password) {
+//     req.body.password = CryptoJS.AES.encrypt(
+//       req.body.password,
+//       process.env.PASS_SEC_KEY
+//     ).toString();
+//   }
+//   try {
+//     const updatedUser = await User.findByIdAndUpdate(
+//       req.params.id,
+//       {
+//         $set: req.body,
+//       },
+//       { new: true }
+//     );
+//     res.status(200).json(updatedUser);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // delete user
 router.delete('/:id' ,verifyTokenAndAuthorization, async (req ,res)=>{
