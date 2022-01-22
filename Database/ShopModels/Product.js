@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema(
   {
@@ -17,11 +17,11 @@ const productSchema = new mongoose.Schema(
   { timestamps: true },
   {
     writeConcern: {
-      w: "majority",
+      w: 'majority',
       j: true,
       wtimeout: 1000,
     },
   }
 );
 
-module.exports = mongoose.model("productData", productSchema);
+module.exports = mongoose.model('productData', productSchema);

@@ -6,10 +6,12 @@ const passport = require('passport');
 const clientURL="http://localhost:3000/"
 
 //login using passport 
-router.get('/google', passport.authenticate('google'));
+router.get('/google', passport.authenticate('google',{scope :['email','profile']}));
 router.get('/google/callback',passport.authenticate("google",{
   successRedirect : clientURL,
-  failureRedirect : "/"
+  failureRedirect : "/register",
+  successMessage : "successfull logging",
+  failureMessage : "failure logging"
 }))
 
 

@@ -8,7 +8,7 @@ const userRoute = require('./routes/user');
 
 // const fileUpload =require("")
 //passport
-const passportSetup = require('./passport');
+require('./passport');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 
@@ -36,6 +36,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+  
 app.use(
   cookieSession({
     name: 'session',
