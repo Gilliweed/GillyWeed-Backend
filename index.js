@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoute = require('./routes/auth');
 const userRoute = require('./routes/user');
-//cloudnary
+//admin
+const ip = require('./routes/admin/user/ip');
 
-// const fileUpload =require("")
 //passport
 require('./passport');
 const cookieSession = require('cookie-session');
@@ -36,7 +36,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-  
+
 app.use(
   cookieSession({
     name: 'session',
@@ -76,6 +76,7 @@ app.use('/api/order', orderRoute);
 app.use('/api/products', productRoute);
 app.use('/api/maincar', maincarRoute);
 
+app.use('/api/', ip);
 // run on port
 const port = 5000;
 app.listen(port, () => {

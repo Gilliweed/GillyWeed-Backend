@@ -1,27 +1,38 @@
 const Product = require('../../Database/ShopModels/Product');
 const { verifyTokenAndAdmin } = require('../verifyToken');
-const { cloudinary }=require('../../config/cloudinary');
+const { cloudinary } = require('../../config/cloudinary');
 const router = require('express').Router();
 
 // adding new product
-router.post('/upload', async (req, res) => {
-  try {
-    const fileString = req.body.data;
-    // console.log(fileString);
-    const uploadedResponse=await cloudinary.uploader.upload(fileString,{
-      upload_preset:"ml_default"
-    })
-    console.log(uploadedResponse);
-  } catch (error) {
-    console.log(error);
-  }
-});
-router.post('/', verifyTokenAndAdmin, async (req, res) => {
+// var imgLink = '';
+// router.post('/upload', async (req, res) => {
+//   try {
+//     const fileString = req.body.data;
+//     // console.log(fileString);
+//     const uploadedResponse = await cloudinary.uploader.upload(fileString, {
+//       upload_preset: 'ml_default',
+//     });
+
+//     imgLink = uploadedResponse.url;
+//     console.log(imgLink);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+router.post('/', async (req, res) => {
   const newProduct = new Product(req.body);
   
-
+  const fileString = req.body.data;
+  console.log("hiii "+fileString);
   try {
+  const uploadedResponse = await cloudinary.uploader.upload(fileString, {
+    upload_preset: 'ml_default',
+  });
+  console.log("here i am");
+    newProduct.img = uploadedResponse.url;
     const savedProduct = await newProduct.save();
+    
+   console.log("this is here "+newProduct.img);
     res.status(200).json(savedProduct);
   } catch (err) {
     res.status(200).json(err);
