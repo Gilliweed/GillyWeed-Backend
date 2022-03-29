@@ -7,6 +7,8 @@ const {
 const router = require("express").Router();
 const Blog = require("../Database/BlogModels/blog.models");
 
+import transport from "../config/nodemailer";
+
 router.get("/", async (req, res) => {
   const blogs = await Blog.find();
   if (blogs) {

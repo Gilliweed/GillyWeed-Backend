@@ -6,6 +6,8 @@ const {
 
 const router = require("express").Router();
 
+const transport = require("../config/nodemailer");
+
 const Blog = require("../Database/BlogModels/blog.models");
 
 // Create Blog
@@ -28,7 +30,7 @@ router.get("/", async (req, res) => {
   } else {
     res.status(500).json("Don't able to render All Blogs");
   }
-});
+ });
 
 // Get Blogs By Category
 router.get("/:cat", async (req, res) => {
