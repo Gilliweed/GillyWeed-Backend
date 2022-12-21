@@ -5,7 +5,7 @@
 cart model -> Database -> shopmodels -> cart.js
 cart routes -> Routes -> shop routes -> cart.js
 
-Authorization
+Authorization </br>
  model -> Database -> User.js
  
  routes(signin and register new) -> routes -> auth.js (JWT implemented)
