@@ -3,14 +3,14 @@
 
 
 <b>Cart Database Model</b> -> Database -> shopmodels -> cart.js
-cart routes -> Routes -> shop routes -> cart.js
+<b>Cart routes</b> -> Routes -> shop routes -> cart.js
 
-Authorization </br>
- model -> Database -> User.js
+### Authorization </br>
+ <b>User database model</b> -> Database -> User.js
  
- routes(signin and register new) -> routes -> auth.js (JWT implemented)
+ <b>routes(signin and register new)</b> -> routes -> auth.js (JWT implemented)
  </br>
- routes(change password) -> routes -> user
+ <b>routes(change password)</b> -> routes -> user
  
-To test JWT(POSTMAN) :
+<b>To test JWT(POSTMAN) :</b>
   in postman even if you signin but not provide token then on (http://localhost:5000/api/cart/) you will get token not valid error , you can test it on postman
