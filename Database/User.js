@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema(
       j: true,
       wtimeout: 1000,
     },
-  },
+  }
 );
 
 module.exports = mongoose.model("User", userSchema);

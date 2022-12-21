@@ -27,26 +27,27 @@ mongoose
   .connect(process.env.Mongoose_url)
   .then(() => console.log("connection successful"))
   .catch((err) => {
-    console.log(err);
+    console.log("error int database connection can't establise ", err);
   });
 
 // json data allow
 app.use(express.json());
 
 // cross site verification
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
+// const corsOptions = {
+//   origin: "http://localhost:3000",
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // app.use(flash());
 // app.use(customMware.setFlash);
 
 // Routes
 // user routes
+
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 
