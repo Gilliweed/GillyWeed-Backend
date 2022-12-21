@@ -2,6 +2,18 @@ const User = require("../Database/User");
 const router = require("express").Router();
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
+const passport = require('passport');
+const clientURL="http://localhost:3000/"
+
+//login using passport 
+router.get('/google', passport.authenticate('google',{scope :['email','profile']}));
+router.get('/google/callback',passport.authenticate("google",{
+  successRedirect : clientURL,
+  failureRedirect : "/register",
+  successMessage : "successfull logging",
+  failureMessage : "failure logging"
+}))
+
 
 // Register
 router.post("/register", async (req, res) => {

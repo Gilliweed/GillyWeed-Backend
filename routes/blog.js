@@ -6,6 +6,8 @@ const {
 
 const router = require("express").Router();
 
+const transport = require("../config/nodemailer");
+
 const Blog = require("../Database/BlogModels/blog.models");
 
 // Create Blog
@@ -21,7 +23,6 @@ router.post("/", async (req, res) => {
 });
 
 // Get all Blogs
-
 router.get("/", async (req, res) => {
   const allBlog = await Blog.find();
   if (allBlog) {
@@ -29,10 +30,9 @@ router.get("/", async (req, res) => {
   } else {
     res.status(500).json("Don't able to render All Blogs");
   }
-});
+ });
 
 // Get Blogs By Category
-
 router.get("/:cat", async (req, res) => {
   const blogs = await Blog.find(req.params.cat);
   if (blogs) {
@@ -53,7 +53,6 @@ router.get("/:id", async (req, res) => {
 });
 
 // Delete the blog only for the admin
-
 router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
   try {
     await Blog.findByIdAndDelete(req.params.id);
@@ -64,7 +63,6 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 // Delete the blog by the User
-
 router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
     await Blog.findByIdAndDelete(req.params.id);
@@ -75,7 +73,6 @@ router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 // Update the Blog
-
 router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
   try {
     const blog = Blog.findByIdAndUpdate(
